@@ -3,5 +3,5 @@ description: "A GitHub Action that automatically adds labels to pull requests, i
 author: "Hassan Bahati"
 
 runs:
-  using: "node16"
+  using: "node20"
   main: "dist/index.js"
