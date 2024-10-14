@@ -2,6 +2,14 @@ name: "Labeler Action"
 description: "A GitHub Action that automatically adds labels to pull requests, issues, and more. Streamline your workflow by ensuring that every new pull request, issue, or event is properly labeled upon creation."
 author: "Hassan Bahati"
 
+inputs:
+  gh-token:
+    description: "The GitHub token for authentication."
+    requied: true
+  label:
+    description: "The label to be applied to the pull request."
+    required: true
+
 runs:
   using: "node20"
   main: "dist/index.js"
