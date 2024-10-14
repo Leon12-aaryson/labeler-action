@@ -11,6 +11,9 @@ dependencies:
   '@actions/github':
     specifier: ^6.0.0
     version: 6.0.0
+  '@vercel/ncc':
+    specifier: ^0.38.2
+    version: 0.38.2
 
 devDependencies:
   typescript:
@@ -149,6 +152,11 @@ packages:
     resolution: {integrity: sha512-PHZE9Z+kWXb23Ndik8MKPirBPziOc0D2/3KH1P+6jK5nGWe96kadZuE4jev2/Jq7FvIfTlT2Ltg8Fv2x1v0a5g==}
     dependencies:
       '@octokit/openapi-types': 22.2.0
+    dev: false
+
+  /@vercel/ncc@0.38.2:
+    resolution: {integrity: sha512-3yel3jaxUg9pHBv4+KeC9qlbdZPug+UMtUOlhvpDYCMSgcNSrS2Hv1LoqMsOV7hf2lYscx+BESfJOIla1WsmMQ==}
+    hasBin: true
     dev: false
 
   /before-after-hook@2.2.3:
