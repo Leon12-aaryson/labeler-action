@@ -4,7 +4,7 @@ author: "Hassan Bahati"
 
 inputs:
   gh-token:
-    description: "The GitHub token for authentication."
+    description: "The GitHub token for Authentication."
     requied: true
   label:
     description: "The label to be applied to the pull request."
