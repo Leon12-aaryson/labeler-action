@@ -31817,6 +31817,7 @@ var __webpack_exports__ = {};
 var exports = __webpack_exports__;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.run = run;
 const core_1 = __nccwpck_require__(4708);
 const github_1 = __nccwpck_require__(3802);
 async function run() {
@@ -31840,6 +31841,8 @@ async function run() {
         (0, core_1.setFailed)((_a = error === null || error === void 0 ? void 0 : error.message) !== null && _a !== void 0 ? _a : "Unkown error");
     }
 }
+// do not execute run() if action has been run by jest
+// if (!process.env.JEST_WORKER_ID) {
 run();
 
 })();
