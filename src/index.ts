@@ -17,6 +17,7 @@ async function run() {
     await octokit.rest.issues.addLabels({
       owner: context.repo.owner,
       repo: context.repo.repo,
+
       issue_number: pullRequest.number,
       labels: [label],
     });
