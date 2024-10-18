@@ -31842,8 +31842,9 @@ async function run() {
     }
 }
 // do not execute run() if action has been run by jest
-// if (!process.env.JEST_WORKER_ID) {
-run();
+if (!process.env.JEST_WORKER_ID) {
+    run();
+}
 
 })();
 
