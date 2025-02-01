@@ -3,6 +3,8 @@ name: Labeler
 on:
   pull_request:
     types: [opened, reopened]
+  issues:
+    types: [opened, reopened]
 
 jobs:
   hello:
@@ -13,3 +15,14 @@ jobs:
         with:
           gh-token: "${{ secrets.GITHUB_TOKEN }}"
           label: "needs-review"
+
+  label_issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - run: gh issue edit "$NUMBER" --add-label "$LABELS"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.issue.number }}
+          LABELS: triage
