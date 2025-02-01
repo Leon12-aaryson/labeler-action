@@ -9,20 +9,21 @@ on:
 jobs:
   label:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      issues: write
     steps:
       - uses: actions/checkout@v4
       - uses: ./
-        with:
-          gh-token: "${{ secrets.GITHUB_TOKEN }}"
-          label: "needs-review"
-
-  label_issues:
-    runs-on: ubuntu-latest
-    permissions:
-      issues: write
-    steps:
-      - run: gh issue edit "$NUMBER" --add-label "$LABELS"
+      - name: Label pull requests
+        if: github.event_name == 'pull_request'
+        run: |
+          gh pr edit ${{ github.event.number }} --add-label "needs-review"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # NUMBER: ${{ github.event.issue.number }}
-          LABELS: triage
+      - name: Label issues
+        if: github.event_name == 'issues'
+        run: |
+          gh issue edit ${{ github.event.issue.number }} --add-label "triage"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
