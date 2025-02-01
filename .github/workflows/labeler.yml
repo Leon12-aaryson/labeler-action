@@ -7,7 +7,7 @@ on:
     types: [opened, reopened]
 
 jobs:
-  hello:
+  label:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
